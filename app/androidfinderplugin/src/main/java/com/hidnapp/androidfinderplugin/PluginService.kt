@@ -1,6 +1,7 @@
 package com.hidnapp.androidfinderplugin
 
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.os.RemoteException
@@ -13,13 +14,12 @@ abstract class PluginService : Service() {
 
     private val mBinder: IPluginInterface.Stub = object : IPluginInterface.Stub() {
         @Throws(RemoteException::class)
-        override fun start(msg: String): Int {
-            return run(msg)//defined in plugin
+        override fun start(msg: String): Int {//access plugin's function run
+            return run(msg)
         }
     }
 
-    //protected abstract double getResult(double number1, double number2);
-    protected abstract fun run(msgContent: String?): Int
+    protected abstract fun run(msgContent: String?): Int//defined in plugin
     
     protected fun getContext(): Context {
         return applicationContext;
