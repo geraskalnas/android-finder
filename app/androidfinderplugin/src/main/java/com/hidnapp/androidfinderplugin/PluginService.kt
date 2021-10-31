@@ -20,4 +20,8 @@ abstract class PluginService : Service() {
 
     //protected abstract double getResult(double number1, double number2);
     protected abstract fun run(msgContent: String?): Int
+    
+    protected fun getContext(): Context {
+        return applicationContext;
+    }
 }
