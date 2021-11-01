@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android finder"
 include ':app'
+include ':app:androidfinderplugin'

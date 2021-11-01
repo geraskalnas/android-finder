@@ -20,6 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".TorchPlugin">
+            <intent-filter>
+                <action android:name="com.hidnapp.androidfinder.PLUGIN"/>
+            </intent-filter>
+
+            <meta-data android:name="com.hidnapp.androidfinder.META_DATA_PATTERN" android:value="torch"/>
+            <meta-data android:name="com.hidnapp.androidfinder.META_DATA_API_LEVEL" android:value="1"/>
+        </service>
     </application>
 
 </manifest>
