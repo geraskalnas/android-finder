@@ -1,5 +1,6 @@
 package com.hidnapp.androidfinder
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.hidnapp.androidfinder.databinding.FragmentFirstBinding
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
+    private var ctx: Context? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -31,6 +33,18 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ctx = context
+
+        val ps = findPlugins(ctx!!)
+        var s = ""
+
+        for(p: Plugin in ps!!){
+            s += p.serviceName
+            s += "\n"
+        }
+
+        binding.textviewFirst.setText(s)
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
