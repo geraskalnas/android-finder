@@ -29,6 +29,15 @@ import java.util.ArrayList
         return plugins
     }
 
+    fun matchPlugin(ps: List<Plugin>, pattern: String): Plugin?{
+        for(p: Plugin in ps){
+            if(p.pattern == pattern){
+                return p;
+            }
+        }
+        return null
+    }
+
 
     fun bindPlugin(ctx: Context, plugin: Plugin?) {
         val bindIntent = Intent()
