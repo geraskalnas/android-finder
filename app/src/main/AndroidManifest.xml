@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hidnapp.androidfinder">
 
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFinder">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -21,14 +29,47 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"/>
+
         <service android:name=".TorchPlugin">
             <intent-filter>
-                <action android:name="com.hidnapp.androidfinder.PLUGIN"/>
+                <action android:name="com.hidnapp.androidfinder.PLUGIN" />
             </intent-filter>
 
-            <meta-data android:name="com.hidnapp.androidfinder.META_DATA_PATTERN" android:value="torch"/>
-            <meta-data android:name="com.hidnapp.androidfinder.META_DATA_API_LEVEL" android:value="1"/>
+            <meta-data
+                android:name="com.hidnapp.androidfinder.META_DATA_PATTERN"
+                android:value="torch" />
+            <meta-data
+                android:name="com.hidnapp.androidfinder.META_DATA_API_LEVEL"
+                android:value="1" />
         </service>
+
+        <service android:name=".RingPlugin">
+            <intent-filter>
+                <action android:name="com.hidnapp.androidfinder.PLUGIN" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.hidnapp.androidfinder.META_DATA_PATTERN"
+                android:value="ring" />
+            <meta-data
+                android:name="com.hidnapp.androidfinder.META_DATA_API_LEVEL"
+                android:value="1" />
+        </service>
+
+        <service android:name=".FService" />
+
+        <receiver
+            android:name=".SmsListener"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
