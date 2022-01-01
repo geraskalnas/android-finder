@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hidnapp.androidfinder">
+    package="com.hidnapp.androidfinder" >
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
@@ -10,18 +10,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidFinder">
+        android:theme="@style/Theme.AndroidFinder" >
+        <activity
+            android:name=".TrustedNumbers"
+            android:exported="false"
+            android:label="@string/title_activity_trusted_numbers"
+            android:theme="@style/Theme.AndroidFinder.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"/>
-
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidFinder.NoActionBar">
+            android:theme="@style/Theme.AndroidFinder.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,9 +35,9 @@
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".MainActivity" />
 
-        <service android:name=".TorchPlugin">
+        <service android:name=".TorchPlugin" >
             <intent-filter>
                 <action android:name="com.hidnapp.androidfinder.PLUGIN" />
             </intent-filter>
@@ -45,8 +49,7 @@
                 android:name="com.hidnapp.androidfinder.META_DATA_API_LEVEL"
                 android:value="1" />
         </service>
-
-        <service android:name=".RingPlugin">
+        <service android:name=".RingPlugin" >
             <intent-filter>
                 <action android:name="com.hidnapp.androidfinder.PLUGIN" />
             </intent-filter>
@@ -58,14 +61,13 @@
                 android:name="com.hidnapp.androidfinder.META_DATA_API_LEVEL"
                 android:value="1" />
         </service>
-
         <service android:name=".FService" />
 
         <receiver
             android:name=".SmsListener"
             android:enabled="true"
             android:exported="false"
-            android:permission="android.permission.RECEIVE_SMS">
+            android:permission="android.permission.RECEIVE_SMS" >
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>

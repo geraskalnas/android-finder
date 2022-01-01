@@ -71,6 +71,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            R.id.action_trusted_numbers -> {
+                val intent = Intent(this@MainActivity, TrustedNumbers::class.java)
+                startActivity(intent)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
