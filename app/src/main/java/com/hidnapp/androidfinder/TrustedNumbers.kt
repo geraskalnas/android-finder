@@ -1,7 +1,5 @@
 package com.hidnapp.androidfinder
 
-import android.content.DialogInterface
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +16,6 @@ import java.util.ArrayList;
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.hidnapp.androidfinder.databinding.ActivityTrustedNumbersBinding
 //import androidx.recyclerview.widget.RecyclerView
 //import android.R
