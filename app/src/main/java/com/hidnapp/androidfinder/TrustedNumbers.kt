@@ -47,32 +47,16 @@ class TrustedNumbers : AppCompatActivity() {
         //appBarConfiguration = AppBarConfiguration(navController.graph)
         //setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // initializing our variables.
-        // initializing our variables.
         courseNameEdt = findViewById(R.id.idEdtCourseName)
         //courseDescEdt = findViewById(R.id.idEdtCourseDescription)
         addBtn = findViewById(R.id.idBtnAdd)
         saveBtn = findViewById(R.id.idBtnSave)
         numberRV = findViewById(R.id.idRVCourses)
 
-        // calling method to load data
-        // from shared prefs.
-
-        // calling method to load data
-        // from shared prefs.
         loadData()
 
-        // calling method to build
-        // recycler view.
-
-        // calling method to build
-        // recycler view.
         buildRecyclerView()
 
-        // on click listener for adding data to array list.
-
-
-        // on click listener for adding data to array list.
         addBtn?.setOnClickListener(View.OnClickListener() {
             numberModalArrayList!!.add(
                 CourseModal(
