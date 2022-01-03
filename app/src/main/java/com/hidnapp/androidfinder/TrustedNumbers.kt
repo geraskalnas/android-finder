@@ -32,8 +32,8 @@ class TrustedNumbers : AppCompatActivity() {
     private var numberRV: RecyclerView? = null
 
     // variable for our adapter class and array list
-    private var adapter: CourseAdapter? = null
-    private var numberModalArrayList: ArrayList<CourseModal>? = null
+    private var adapter: RVItemAdapter? = null
+    private var numberModalArrayList: ArrayList<RVItemModal>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +59,7 @@ class TrustedNumbers : AppCompatActivity() {
 
         addBtn?.setOnClickListener(View.OnClickListener() {
             numberModalArrayList!!.add(
-                CourseModal(
+                RVItemModal(
                     courseNameEdt?.getText().toString(), ""
                     //courseDescEdt.getText().toString()
                 )
@@ -84,7 +84,7 @@ class TrustedNumbers : AppCompatActivity() {
     }
 
     private fun buildRecyclerView() {
-        adapter = CourseAdapter(numberModalArrayList, this@TrustedNumbers)
+        adapter = RVItemAdapter(numberModalArrayList, this@TrustedNumbers)
 
         val manager = LinearLayoutManager(this)
         numberRV!!.setHasFixedSize(true)
@@ -101,7 +101,7 @@ class TrustedNumbers : AppCompatActivity() {
 
         val json = sharedPreferences.getString("tn", null)
 
-        val type: Type = object : TypeToken<ArrayList<CourseModal?>?>() {}.getType()
+        val type: Type = object : TypeToken<ArrayList<RVItemModal?>?>() {}.getType()
 
         numberModalArrayList = gson.fromJson(json, type)
 

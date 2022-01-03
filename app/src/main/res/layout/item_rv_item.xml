@@ -14,7 +14,7 @@
 
         <!--text view for our course name-->
         <TextView
-            android:id="@+id/idTVCourseName"
+            android:id="@+id/idTVItemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -24,7 +24,7 @@
 
         <!--text view for our course description-->
         <TextView
-            android:id="@+id/idTVCourseDescription"
+            android:id="@+id/idTVItemDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/idTVCourseName"
