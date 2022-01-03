@@ -29,11 +29,11 @@ class TrustedNumbers : AppCompatActivity() {
     //private var courseDescEdt: EditText? = null
     private var addBtn: Button? = null
     private  var saveBtn: Button? = null
-    private var courseRV: RecyclerView? = null
+    private var numberRV: RecyclerView? = null
 
     // variable for our adapter class and array list
     private var adapter: CourseAdapter? = null
-    private var courseModalArrayList: ArrayList<CourseModal>? = null
+    private var numberModalArrayList: ArrayList<CourseModal>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,7 @@ class TrustedNumbers : AppCompatActivity() {
         //courseDescEdt = findViewById(R.id.idEdtCourseDescription)
         addBtn = findViewById(R.id.idBtnAdd)
         saveBtn = findViewById(R.id.idBtnSave)
-        courseRV = findViewById(R.id.idRVCourses)
+        numberRV = findViewById(R.id.idRVCourses)
 
         // calling method to load data
         // from shared prefs.
@@ -74,14 +74,14 @@ class TrustedNumbers : AppCompatActivity() {
 
         // on click listener for adding data to array list.
         addBtn?.setOnClickListener(View.OnClickListener() {
-            courseModalArrayList!!.add(
+            numberModalArrayList!!.add(
                 CourseModal(
                     courseNameEdt?.getText().toString(), ""
                     //courseDescEdt.getText().toString()
                 )
             )
             // notifying adapter when new data added.
-            adapter!!.notifyItemInserted(courseModalArrayList!!.size)
+            adapter!!.notifyItemInserted(numberModalArrayList!!.size)
         })
 
 
@@ -100,14 +100,14 @@ class TrustedNumbers : AppCompatActivity() {
     }
 
     private fun buildRecyclerView() {
-        adapter = CourseAdapter(courseModalArrayList, this@TrustedNumbers)
+        adapter = CourseAdapter(numberModalArrayList, this@TrustedNumbers)
 
         val manager = LinearLayoutManager(this)
-        courseRV!!.setHasFixedSize(true)
+        numberRV!!.setHasFixedSize(true)
 
-        courseRV!!.layoutManager = manager
+        numberRV!!.layoutManager = manager
 
-        courseRV!!.adapter = adapter
+        numberRV!!.adapter = adapter
     }
 
     private fun loadData() {
@@ -119,10 +119,10 @@ class TrustedNumbers : AppCompatActivity() {
 
         val type: Type = object : TypeToken<ArrayList<CourseModal?>?>() {}.getType()
 
-        courseModalArrayList = gson.fromJson(json, type)
+        numberModalArrayList = gson.fromJson(json, type)
 
-        if (courseModalArrayList == null) {
-            courseModalArrayList = ArrayList()
+        if (numberModalArrayList == null) {
+            numberModalArrayList = ArrayList()
         }
     }
 
@@ -133,7 +133,7 @@ class TrustedNumbers : AppCompatActivity() {
 
         val gson = Gson()
 
-        val json: String = gson.toJson(courseModalArrayList)
+        val json: String = gson.toJson(numberModalArrayList)
 
         editor.putString("courses", json)
 
