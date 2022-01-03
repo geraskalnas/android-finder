@@ -115,7 +115,7 @@ class TrustedNumbers : AppCompatActivity() {
 
         val gson = Gson()
 
-        val json = sharedPreferences.getString("courses", null)
+        val json = sharedPreferences.getString("tn", null)
 
         val type: Type = object : TypeToken<ArrayList<CourseModal?>?>() {}.getType()
 
@@ -135,10 +135,10 @@ class TrustedNumbers : AppCompatActivity() {
 
         val json: String = gson.toJson(numberModalArrayList)
 
-        editor.putString("courses", json)
+        editor.putString("tn", json)
 
         editor.apply()
 
-        Toast.makeText(this, "Saved Array List to Shared preferences. ", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Saved.", Toast.LENGTH_SHORT).show()
     }
 }
