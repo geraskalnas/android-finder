@@ -76,7 +76,7 @@ class TrustedNumbers : AppCompatActivity() {
         addBtn?.setOnClickListener(View.OnClickListener() {
             courseModalArrayList!!.add(
                 CourseModal(
-                    courseNameEdt?.getText().toString(), "2"
+                    courseNameEdt?.getText().toString(), ""
                     //courseDescEdt.getText().toString()
                 )
             )
