@@ -73,8 +73,8 @@ class TrustedNumbers : AppCompatActivity() {
             saveData()
         })
 
-        binding.fab.setOnClickListener { view -> 2*2
-        }
+        //binding.fab.setOnClickListener { view -> 2*2
+        //}
     }
 
     override fun onSupportNavigateUp(): Boolean {
