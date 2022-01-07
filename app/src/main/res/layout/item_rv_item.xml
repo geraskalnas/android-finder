@@ -27,7 +27,7 @@
             android:id="@+id/idTVItemDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idTVCourseName"
+            android:layout_below="@id/idTVItemName"
             android:padding="5dp"
             android:text="COurse Description"
             android:textColor="@color/black" />

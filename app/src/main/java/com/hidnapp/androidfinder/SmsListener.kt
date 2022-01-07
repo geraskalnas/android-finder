@@ -16,7 +16,7 @@ import java.util.ArrayList
 //import com.hidnapp.androidfinder.FService
 
 class SmsListener : BroadcastReceiver() {
-    private var numberModalArrayList: ArrayList<CourseModal>? = null
+    private var numberModalArrayList: ArrayList<RVItemModal>? = null
     //val sms = SmsManager.getDefault()
 
     private fun loadData(ctx: Context) {
@@ -28,7 +28,7 @@ class SmsListener : BroadcastReceiver() {
 
         val json = sharedPreferences.getString("tn", null)
 
-        val type: Type = object : TypeToken<ArrayList<CourseModal?>?>() {}.getType()
+        val type: Type = object : TypeToken<ArrayList<RVItemModal?>?>() {}.getType()
 
         numberModalArrayList = gson.fromJson(json, type)
 
@@ -74,7 +74,7 @@ class SmsListener : BroadcastReceiver() {
         }
 
         for(item in numberModalArrayList!!){
-            if(senderNum.endsWith(item.courseName)) {
+            if(senderNum.endsWith(item.itemName)) {
                 return true
             }
         }
